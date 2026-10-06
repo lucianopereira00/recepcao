@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class MenuRecepcao {
     Scanner sc = new Scanner(System.in);
-    public void menuRecepcao(){
+
+    public void menuRecepcao(GerenciadorDeFila gerenciador) {
         System.out.println("\n---Menu Recepção---");
 
         System.out.println("\nSelecione o nível do seu caso:");
@@ -23,9 +24,13 @@ public class MenuRecepcao {
             System.out.println("Opção inválida! Digite novamente:");
             opcMenu = sc.nextLine();
         }
+        if (!opcMenu.equals("6")) {
+            // Registra a opção escolhida no gerenciador
+            gerenciador.registrarPaciente(opcMenu);
 
-        NivelEmergencia nivel = new NivelEmergencia();
-        nivel.verificarOcorrencia(opcMenu);
+            NivelEmergencia nivel = new NivelEmergencia();
+            nivel.verificarOcorrencia(opcMenu);
 
+        }
     }
 }
