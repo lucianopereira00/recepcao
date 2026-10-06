@@ -2,11 +2,36 @@ package service;
 
 import java.util.Scanner;
 
-public class MenuRecepcao {
+public class MenuAtendimento {
     Scanner sc = new Scanner(System.in);
 
     public void menuRecepcao(GerenciadorDeFila gerenciador) {
         System.out.println("\n---Menu Recepção---");
+
+        System.out.println("Seja bem-vindo! \nDigite seu nome:");
+        String nome;
+        while (true) {
+            nome = sc.nextLine().trim();
+
+            if (nome.isEmpty()) {
+                System.out.println("Nome não pode ficar vazio. Digite novamente:");
+            } else if (nome.matches(".*\\d.*")) {
+                System.out.println("Nome não pode conter números. Digite novamente:");
+            } else if (!nome.matches("[\\p{L} ]+")) {
+                System.out.println("Nome tem caracteres inválidos (use só letras). Digite novamente:");
+            } else {
+                break;
+            }
+        }
+        System.out.print("Digite sua idade:");
+        int idade = 0;
+        try {
+            idade = Integer.parseInt(sc.nextLine().trim());
+        }catch(NumberFormatException e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.print("Nome: "+nome+" || Idade: "+idade+"\n");
 
         System.out.println("\nSelecione o nível do seu caso:");
 
