@@ -3,7 +3,12 @@ package farmacia;
 import java.util.Scanner;
 
 public class farmaciaMenu {
-    public static void main(String args[]) {
-        System.out.println("Farmácia");
+
+    private Scanner scanner = new Scanner(System.in);
+
+    public void menuFarmacia() {
+        System.out.println("Menu Farmacia");
+        System.out.println("1. Listar Remédios");
+        System.out.println("2. Realizar pedidos");
     }
 }

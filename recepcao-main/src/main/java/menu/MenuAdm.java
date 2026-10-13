@@ -1,5 +1,6 @@
 package menu;
 
+import farmacia.farmaciaMenu;
 import service.GerenciadorDeFila;
 
 import java.util.Scanner;
@@ -16,8 +17,8 @@ public class MenuAdm {
             System.out.println("\n--- Painel Administrativo / Recepção ---");
             System.out.println("1. Ver relatório de pacientes por nível");
             System.out.println("2. Acionar ambulância");
-            System.out.println("3. Voltar ao menu principal");
-            System.out.println("4. Farmácia");
+            System.out.println("3. Farmácia");
+            System.out.println("4. Voltar ao menu principal");
             System.out.print("Opção desejada: ");
 
             opc = sc.nextLine();
@@ -31,6 +32,9 @@ public class MenuAdm {
                     System.out.println("\n[ALERTA] Ambulância acionada! Pacientes em emergência: " + emg);
                     break;
                 case "3":
+                    farmaciaMenu farmacia = new farmaciaMenu();
+                    farmacia.menuFarmacia();
+                case "4":
                     System.out.println("Retornando...");
                     break;
                 default:
