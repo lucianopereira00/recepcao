@@ -1,4 +1,7 @@
-package service;
+package menu;
+
+import service.GerenciadorDeFila;
+import model.NivelEmergencia;
 
 import java.util.Scanner;
 

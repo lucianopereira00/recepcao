@@ -1,4 +1,6 @@
-package service;
+package menu;
+
+import service.GerenciadorDeFila;
 
 import java.util.Scanner;
 // Se GerenciadorDeFila estiver no mesmo pacote 'service', o import não é obrigatório,
@@ -15,6 +17,7 @@ public class MenuAdm {
             System.out.println("1. Ver relatório de pacientes por nível");
             System.out.println("2. Acionar ambulância");
             System.out.println("3. Voltar ao menu principal");
+            System.out.println("4. Farmácia");
             System.out.print("Opção desejada: ");
 
             opc = sc.nextLine();

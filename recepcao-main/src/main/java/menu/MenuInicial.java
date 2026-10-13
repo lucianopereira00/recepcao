@@ -1,7 +1,6 @@
-package service;
+package menu;
 
-import com.luciano.filadeespera.FiladeesperaApplication;
-import org.springframework.boot.SpringApplication;
+import service.GerenciadorDeFila;
 
 import java.util.Scanner;
 

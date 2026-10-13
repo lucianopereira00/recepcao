@@ -1,6 +1,4 @@
-package service;
-
-import java.util.Scanner;
+package model;
 
 public class NivelEmergencia {
     private int naoUrgente = 1;
