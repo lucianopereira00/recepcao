@@ -15,7 +15,7 @@ public class farmaciaMenu {
         new farmaciaMenu().menuFarmacia();
     }
 
-    private void menuFarmacia() {
+    public void menuFarmacia() {
         int opcao;
         do {
             System.out.println("\nMenu Farmacia");

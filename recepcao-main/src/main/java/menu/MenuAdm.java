@@ -33,7 +33,8 @@ public class MenuAdm {
                     System.out.println("\n[ALERTA] Ambulância acionada! Pacientes em emergência: " + emg);
                     break;
                 case "3":
-                    farmaciaMenu farmacia = new farmaciaMenu();
+                    farmaciaMenu farmaciaMenu = new farmaciaMenu();
+                    farmaciaMenu.menuFarmacia();
                     break;
                 case "4":
                     //lista geral de pacientes

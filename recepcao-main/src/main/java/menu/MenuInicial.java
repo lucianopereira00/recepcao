@@ -38,7 +38,7 @@ public class MenuInicial {
                     System.out.println("Opção inválida!");
                 }
             }
-            sc.close();
+             sc.close();
         }
     }
 
