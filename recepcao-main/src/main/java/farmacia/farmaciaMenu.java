@@ -62,23 +62,42 @@ public class farmaciaMenu {
     }
 
     private void adicionar() {
-        System.out.print("Digite o nome do remedio: ");
-        String nome = scanner.nextLine();
-        if (listaRemedios.contains(nome)) {
-            System.out.println("Este remedio ja existe!");
-        } else {
-            listaRemedios.add(nome);
-            System.out.println("Remedio adicionado com sucesso!");
-        }
+        String opcao;
+        do {
+            System.out.print("Digite o nome do remedio: ");
+            String nome = scanner.nextLine();
+            if (listaRemedios.contains(nome)) {
+                System.out.println("Este remedio ja existe!");
+            } else {
+                listaRemedios.add(nome);
+                System.out.println("Remedio adicionado com sucesso!");
+            }
+            System.out.println("Deseja adicionar um remedio para um pedido? [S/N]");
+            opcao = scanner.nextLine();
+
+        } while (opcao.equalsIgnoreCase("S"));
+            if (opcao.equalsIgnoreCase("n")) {
+                System.out.print("Retornando ao menu inical da farmacia...");
+            }
     }
 
+
     private void remover() {
-        System.out.print("Digite o nome do remedio: ");
-        String nome = scanner.nextLine();
-        if (listaRemedios.remove(nome)) {
-            System.out.println("Remedio removido com sucesso!");
-        } else {
-            System.out.println("Nenhum remedio encontrado!");
+        String opcao;
+        do {
+            System.out.print("Digite o nome do remedio: ");
+            String nome = scanner.nextLine();
+            if (listaRemedios.remove(nome)) {
+                System.out.println("Remedio removido com sucesso!");
+            } else {
+                System.out.println("Nenhum remedio encontrado!");
+            }
+            System.out.println("Deseja remover um remedio? [S/N]");
+            opcao = scanner.nextLine();
+
+        }while (opcao.equalsIgnoreCase("S"));
+        if (opcao.equalsIgnoreCase("n")) {
+            System.out.print("Retornando ao menu inical da farmacia...");
         }
     }
 
