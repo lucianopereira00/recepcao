@@ -18,7 +18,8 @@ public class MenuAdm {
             System.out.println("1. Ver relatório de pacientes por nível");
             System.out.println("2. Acionar ambulância");
             System.out.println("3. Farmácia");
-            System.out.println("4. Voltar ao menu principal");
+            System.out.println("4. Lista geral de pacientes");
+            System.out.println("5. Voltar ao menu principal");
             System.out.print("Opção desejada: ");
 
             opc = sc.nextLine();
@@ -33,8 +34,10 @@ public class MenuAdm {
                     break;
                 case "3":
                     farmaciaMenu farmacia = new farmaciaMenu();
-                    farmacia.menuFarmacia();
+                    break;
                 case "4":
+                    //lista geral de pacientes
+                case "5":
                     System.out.println("Retornando...");
                     break;
                 default:

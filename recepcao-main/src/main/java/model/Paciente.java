@@ -17,5 +17,10 @@ public class Paciente {
     public int getNivel() {
         return nivel;
     }
+
+    @Override
+    public String toString() {
+        return nome + " - nível " + nivel;
+    }
 }
 
