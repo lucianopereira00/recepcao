@@ -54,7 +54,7 @@ public class MenuAtendimento {
         }
         if (!opcMenu.equals("6")) {
             // Registra a opção escolhida no gerenciador
-            gerenciador.registrarPaciente(opcMenu);
+            gerenciador.registrarPaciente(nome, opcMenu);
 
             NivelEmergencia nivel = new NivelEmergencia();
             nivel.verificarOcorrencia(opcMenu);

@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class MenuAdm {
     private Scanner sc = new Scanner(System.in);
+    private GerenciadorDeFila gerenciador2 = new GerenciadorDeFila();
+    private farmaciaMenu farmaciaMenu = new farmaciaMenu();
 
     public void menuAdministrativo(GerenciadorDeFila gerenciador) {
         String opc = "";
@@ -33,11 +35,11 @@ public class MenuAdm {
                     System.out.println("\n[ALERTA] Ambulância acionada! Pacientes em emergência: " + emg);
                     break;
                 case "3":
-                    farmaciaMenu farmaciaMenu = new farmaciaMenu();
                     farmaciaMenu.menuFarmacia();
                     break;
                 case "4":
-                    //lista geral de pacientes
+                    gerenciador.exibirTodosPacientes();
+                    break;
                 case "5":
                     System.out.println("Retornando...");
                     break;

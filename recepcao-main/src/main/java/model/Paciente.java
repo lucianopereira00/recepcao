@@ -3,19 +3,15 @@ package model;
 
 public class Paciente {
     private String nome;
-    private int nivel;
+    private String nivel;
 
-    public Paciente(String nome, int nivel) {
+    public Paciente(String nome, String nivel) {
         this.nome = nome;
         this.nivel = nivel;
     }
 
     public String getNome() {
         return nome;
-    }
-
-    public int getNivel() {
-        return nivel;
     }
 
     @Override
