@@ -2,16 +2,22 @@ package service;
 
 import model.Paciente;
 
+import java.io.File;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class GerenciadorDeFila {
 
     private Map<String, Integer> contagemPacientesNivel = new HashMap<>();
     private List<Paciente> pacientes = new ArrayList<>();
-
+    private static final Path ARQUIVO = Path.of("pacientes.csv");
 
     public GerenciadorDeFila() {
         contagemPacientesNivel.put("1", 0);
@@ -20,10 +26,11 @@ public class GerenciadorDeFila {
         contagemPacientesNivel.put("4", 0);
         contagemPacientesNivel.put("5", 0);
         contagemPacientesNivel.put("6", 0);
+        carregar();
 
     }
 
-    public Paciente chamarProxPaciente(String nome) {
+    public Paciente chamarProxPaciente() {
         Paciente proximo = null;
         for (Paciente p : pacientes) {
             if (proximo == null
@@ -35,18 +42,50 @@ public class GerenciadorDeFila {
             pacientes.remove(proximo);
             String nivel = proximo.getNivel();
             contagemPacientesNivel.put(nivel, contagemPacientesNivel.get(nivel) - 1);
+            salvar();
         }
         return proximo;
     }
+    private void salvar() {
+        List<String> linhas = new ArrayList<>();
+        for (Paciente p : pacientes) {
+            linhas.add(p.getNome() + " - " + p.getIdade() +" - "+  p.getNivel());
+        }
+        try {
+            Files.write(ARQUIVO, linhas);
 
+        }catch (IOException e) {
+            System.out.println("Erro ao salvar arquivo"+ e.getMessage());
+        }
+    }
 
+    private void carregar(){
+        if (!Files.exists(ARQUIVO)) return ;
+        try {
+            for(String linha : Files.readAllLines(ARQUIVO)){
+                String[] partes = linha.split("; ");
+                if(partes.length == 3){
+                    adicionar(partes[0], Integer.parseInt( partes[1]), partes[2]); ;
+                }
+            }
+        }catch (IOException e){
+            System.out.println("Erro ao carregar arquivo"+ e.getMessage());
+        }
+    }
 
-    public void registrarPaciente(String nome, String opcaoNivel) {
+    private void adicionar(String nome,int idade, String opcaoNivel) {
         if (contagemPacientesNivel.containsKey(opcaoNivel)) {
-            pacientes.add(new Paciente(nome, opcaoNivel));
+            pacientes.add(new Paciente(nome,idade, opcaoNivel));
             contagemPacientesNivel.put(opcaoNivel, contagemPacientesNivel.get(opcaoNivel) + 1);
         }
     }
+
+
+    public void registrarPaciente(String nome,int idade, String opcaoNivel) {
+        adicionar(nome,idade, opcaoNivel);
+        salvar();
+    }
+
     public void exibirTodosPacientes() {
        System.out.println("-- Todas os(as) Pacientes --");
        for (Paciente paciente : pacientes) {

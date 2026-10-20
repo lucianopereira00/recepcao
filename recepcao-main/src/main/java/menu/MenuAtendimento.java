@@ -26,14 +26,18 @@ public class MenuAtendimento {
                 break;
             }
         }
-        System.out.print("Digite sua idade:");
         int idade = 0;
-        try {
-            idade = Integer.parseInt(sc.nextLine().trim());
-        }catch(NumberFormatException e){
-            System.out.println(e.getMessage());
+        while (true) {
+            System.out.print("Digite sua idade:");
+            try {
+                idade = Integer.parseInt(sc.nextLine().trim());
+                if (idade > 0)
+                    break;
+                System.out.println("Idade deve ser maior que 0!");
+            } catch (NumberFormatException e) {
+                System.out.println("Digite apenas numeros");
+            }
         }
-
         System.out.print("Nome: "+nome+" || Idade: "+idade+"\n");
 
         System.out.println("\nSelecione o nível do seu caso:");
@@ -54,7 +58,7 @@ public class MenuAtendimento {
         }
         if (!opcMenu.equals("6")) {
             // Registra a opção escolhida no gerenciador
-            gerenciador.registrarPaciente(nome, opcMenu);
+            gerenciador.registrarPaciente(nome,idade, opcMenu);
 
             NivelEmergencia nivel = new NivelEmergencia();
             nivel.verificarOcorrencia(opcMenu);

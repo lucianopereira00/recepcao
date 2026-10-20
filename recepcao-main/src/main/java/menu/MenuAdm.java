@@ -1,6 +1,7 @@
 package menu;
 
 import farmacia.farmaciaMenu;
+import model.Paciente;
 import service.GerenciadorDeFila;
 
 import java.util.Scanner;
@@ -41,7 +42,12 @@ public class MenuAdm {
                     gerenciador.exibirTodosPacientes();
                     break;
                 case "5":
-                    System.out.println("Retornando...");
+                    Paciente proximo = gerenciador.chamarProxPaciente();
+                    if(proximo == null){
+                        System.out.println("Nemhum paciente na fila");
+                    }else{
+                        System.out.println("Chamando: "+ proximo);
+                    }
                     break;
                 default:
                     System.out.println("Opção inválida!");
