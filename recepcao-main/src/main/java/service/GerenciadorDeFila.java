@@ -9,19 +9,36 @@ import java.util.Map;
 
 public class GerenciadorDeFila {
 
-   private Map<String, Integer> contagemPacientesNivel = new HashMap<>();
-   private List<Paciente> pacientes = new ArrayList<>();
+    private Map<String, Integer> contagemPacientesNivel = new HashMap<>();
+    private List<Paciente> pacientes = new ArrayList<>();
 
 
-   public GerenciadorDeFila() {
-       contagemPacientesNivel.put("1", 0);
-       contagemPacientesNivel.put("2", 0);
-       contagemPacientesNivel.put("3", 0);
-       contagemPacientesNivel.put("4", 0);
-       contagemPacientesNivel.put("5", 0);
-       contagemPacientesNivel.put("6", 0);
+    public GerenciadorDeFila() {
+        contagemPacientesNivel.put("1", 0);
+        contagemPacientesNivel.put("2", 0);
+        contagemPacientesNivel.put("3", 0);
+        contagemPacientesNivel.put("4", 0);
+        contagemPacientesNivel.put("5", 0);
+        contagemPacientesNivel.put("6", 0);
 
-   }
+    }
+
+    public Paciente chamarProxPaciente(String nome) {
+        Paciente proximo = null;
+        for (Paciente p : pacientes) {
+            if (proximo == null
+                    || Integer.parseInt(p.getNivel()) > Integer.parseInt(proximo.getNivel())) {
+                proximo = p;
+            }
+        }
+        if (proximo != null) {
+            pacientes.remove(proximo);
+            String nivel = proximo.getNivel();
+            contagemPacientesNivel.put(nivel, contagemPacientesNivel.get(nivel) - 1);
+        }
+        return proximo;
+    }
+
 
 
     public void registrarPaciente(String nome, String opcaoNivel) {

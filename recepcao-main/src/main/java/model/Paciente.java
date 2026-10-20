@@ -9,6 +9,7 @@ public class Paciente {
         this.nome = nome;
         this.nivel = nivel;
     }
+    public String getNivel() { return nivel; }
 
     public String getNome() {
         return nome;
