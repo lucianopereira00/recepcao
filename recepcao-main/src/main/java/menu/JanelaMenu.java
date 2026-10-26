@@ -1,7 +1,7 @@
 package menu;
 
 import javax.swing.*;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,21 +13,27 @@ public class JanelaMenu extends JFrame {
     public JanelaMenu() {
         super("Fila de espera - Entrar como");
         setDefaultCloseOperation(EXIT_ON_CLOSE);   // fechar o menu encerra o programa
-        setSize(320, 200);
+        setSize(820, 500);
         setLocationRelativeTo(null);
 
         JButton botaoPaciente = new JButton("Paciente");
+        botaoPaciente.setFont(new Font("Arial", Font.BOLD, 30));
+
         JButton botaoAdm = new JButton("Administrador");
+        botaoAdm.setFont(new Font("Arial", Font.BOLD, 30));
 
 
         JPanel painel = new JPanel(new GridLayout(4, 1, 10, 10));
-        painel.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
-        painel.add(new JLabel("Como deseja entrar?", SwingConstants.CENTER));
+        JLabel titulo = new JLabel("Como deseja entrar?", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 35));
+        painel.add(titulo);
         painel.add(botaoPaciente);
         painel.add(botaoAdm);
         add(painel);
         JButton botaoDesligar = new JButton("Desligar sistema");
         painel.add(botaoDesligar);
+        botaoDesligar.setFont(new Font("Arial", Font.BOLD, 30));
+
 
         botaoDesligar.addActionListener(e -> System.exit(0));
 
