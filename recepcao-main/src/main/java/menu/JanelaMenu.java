@@ -19,12 +19,17 @@ public class JanelaMenu extends JFrame {
         JButton botaoPaciente = new JButton("Paciente");
         JButton botaoAdm = new JButton("Administrador");
 
-        JPanel painel = new JPanel(new GridLayout(3, 1, 10, 10));
+
+        JPanel painel = new JPanel(new GridLayout(4, 1, 10, 10));
         painel.setBorder(BorderFactory.createEmptyBorder(15, 30, 15, 30));
         painel.add(new JLabel("Como deseja entrar?", SwingConstants.CENTER));
         painel.add(botaoPaciente);
         painel.add(botaoAdm);
         add(painel);
+        JButton botaoDesligar = new JButton("Desligar sistema");
+        painel.add(botaoDesligar);
+
+        botaoDesligar.addActionListener(e -> System.exit(0));
 
         botaoPaciente.addActionListener(e -> new JanelaPaciente(fila).setVisible(true));
         botaoAdm.addActionListener(e -> new JanelaAdm(fila).setVisible(true));
