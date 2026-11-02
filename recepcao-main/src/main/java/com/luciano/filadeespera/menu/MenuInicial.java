@@ -1,12 +1,21 @@
 package com.luciano.filadeespera.menu;
 
+import com.luciano.filadeespera.model.PacienteRepository;
 import com.luciano.filadeespera.service.GerenciadorDeFila;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
-
+@Component
 public class MenuInicial {
 
+    private final PacienteRepository pacienteRepository;
+
     Scanner sc = new Scanner(System.in);
+
+
+    public MenuInicial(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+    }
 
     // 1. Criamos um ÚNICO gerenciador que vai guardar os dados o tempo todo
     GerenciadorDeFila gerenciador = new GerenciadorDeFila();

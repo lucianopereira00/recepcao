@@ -3,13 +3,15 @@ package com.luciano.filadeespera;
 import com.luciano.filadeespera.menu.MenuInicial;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class FiladeesperaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FiladeesperaApplication.class, args);
-		new MenuInicial().menuInicial();
+		ConfigurableApplicationContext context = SpringApplication.run(FiladeesperaApplication.class, args);
+		MenuInicial menu = context.getBean(MenuInicial.class);
+		menu.menuInicial();
 	}
 }
 
