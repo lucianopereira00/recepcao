@@ -1,5 +1,6 @@
 package com.luciano.filadeespera.menu;
 
+import com.luciano.filadeespera.model.Paciente;
 import com.luciano.filadeespera.model.PacienteRepository;
 import com.luciano.filadeespera.service.GerenciadorDeFila;
 import com.luciano.filadeespera.model.NivelEmergencia;
@@ -65,6 +66,8 @@ public class MenuAtendimento {
         if (!opcMenu.equals("6")) {
             // Registra a opção escolhida no gerenciador
             gerenciador.registrarPaciente(nome,idade, opcMenu);
+
+            pacienteRepository.save(new Paciente(nome, idade, opcMenu));
 
             NivelEmergencia nivel = new NivelEmergencia();
             nivel.verificarOcorrencia(opcMenu);
