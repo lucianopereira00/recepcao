@@ -9,20 +9,20 @@ import java.util.Scanner;
 public class MenuInicial {
 
     private final PacienteRepository pacienteRepository;
+    private final MenuAtendimento menuPaciente;
 
     Scanner sc = new Scanner(System.in);
-
-
-    public MenuInicial(PacienteRepository pacienteRepository) {
-        this.pacienteRepository = pacienteRepository;
-    }
 
     // 1. Criamos um ÚNICO gerenciador que vai guardar os dados o tempo todo
     GerenciadorDeFila gerenciador = new GerenciadorDeFila();
 
     // 2. Criamos as telas
-    MenuAtendimento menuPaciente = new MenuAtendimento();
     MenuAdm menuAdm = new MenuAdm();
+
+    public MenuInicial(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+        this.menuPaciente = new MenuAtendimento(pacienteRepository);
+    }
 
     public void menuInicial() {
         String opcao = "";

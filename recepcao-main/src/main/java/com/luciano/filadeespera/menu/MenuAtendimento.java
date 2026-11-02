@@ -1,5 +1,6 @@
 package com.luciano.filadeespera.menu;
 
+import com.luciano.filadeespera.model.PacienteRepository;
 import com.luciano.filadeespera.service.GerenciadorDeFila;
 import com.luciano.filadeespera.model.NivelEmergencia;
 
@@ -8,6 +9,11 @@ import java.util.Scanner;
 public class MenuAtendimento {
     Scanner sc = new Scanner(System.in);
 
+    private final PacienteRepository pacienteRepository;
+
+    public MenuAtendimento(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+    }
     public void menuRecepcao(GerenciadorDeFila gerenciador) {
         System.out.println("\n---Menu Recepção---");
 
