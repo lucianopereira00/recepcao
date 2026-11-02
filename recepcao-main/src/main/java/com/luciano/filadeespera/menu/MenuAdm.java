@@ -1,8 +1,8 @@
-package menu;
+package com.luciano.filadeespera.menu;
 
-import farmacia.farmaciaMenu;
-import model.Paciente;
-import service.GerenciadorDeFila;
+import com.luciano.filadeespera.farmacia.farmaciaMenu;
+import com.luciano.filadeespera.model.Paciente;
+import com.luciano.filadeespera.service.GerenciadorDeFila;
 
 import java.util.Scanner;
 // Se GerenciadorDeFila estiver no mesmo pacote 'service', o import não é obrigatório,

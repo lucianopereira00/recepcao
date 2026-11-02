@@ -1,10 +1,7 @@
-package service;
+package com.luciano.filadeespera.service;
 
-import model.Paciente;
+import com.luciano.filadeespera.model.Paciente;
 
-import java.io.File;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

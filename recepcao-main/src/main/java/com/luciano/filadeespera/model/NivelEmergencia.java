@@ -1,4 +1,4 @@
-package model;
+package com.luciano.filadeespera.model;
 
 public class NivelEmergencia {
     private int naoUrgente = 1;

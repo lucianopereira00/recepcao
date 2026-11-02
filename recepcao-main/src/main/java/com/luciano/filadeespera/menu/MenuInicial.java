@@ -1,6 +1,6 @@
-package menu;
+package com.luciano.filadeespera.menu;
 
-import service.GerenciadorDeFila;
+import com.luciano.filadeespera.service.GerenciadorDeFila;
 
 import java.util.Scanner;
 

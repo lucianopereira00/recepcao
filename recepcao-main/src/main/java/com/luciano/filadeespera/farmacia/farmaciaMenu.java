@@ -1,4 +1,4 @@
-package farmacia;
+package com.luciano.filadeespera.farmacia;
 
 import java.util.ArrayList;
 import java.util.Collections;

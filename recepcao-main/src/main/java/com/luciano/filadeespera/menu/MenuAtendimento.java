@@ -1,7 +1,7 @@
-package menu;
+package com.luciano.filadeespera.menu;
 
-import service.GerenciadorDeFila;
-import model.NivelEmergencia;
+import com.luciano.filadeespera.service.GerenciadorDeFila;
+import com.luciano.filadeespera.model.NivelEmergencia;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
 package com.luciano.filadeespera;
 
-import menu.MenuInicial;
+import com.luciano.filadeespera.menu.MenuInicial;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

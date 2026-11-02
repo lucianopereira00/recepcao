@@ -1,4 +1,4 @@
-package menu;
+package com.luciano.filadeespera.menu;
 
 import javax.swing.*;
 import java.awt.*;
