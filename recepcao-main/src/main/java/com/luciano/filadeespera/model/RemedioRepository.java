@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface RemedioRepository extends JpaRepository<Remedio, Long> {
-    boolean existsByNome(String nome);
-    Optional<Remedio> findByNome(String nome);
-    List<Remedio> findAllByOrderByNomeAsc();
+    boolean existsByNomeRemedio(String nome);
+    Optional<Remedio> findByNomeRemedio(String nome);
+    List<Remedio> findAllByOrderByNomeRemedioAsc();
 }

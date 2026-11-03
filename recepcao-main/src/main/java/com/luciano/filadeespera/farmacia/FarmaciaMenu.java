@@ -1,5 +1,6 @@
 package com.luciano.filadeespera.farmacia;
 
+import com.luciano.filadeespera.model.Remedio;
 import com.luciano.filadeespera.model.RemedioRepository;
 import org.springframework.stereotype.Component;
 
@@ -47,11 +48,12 @@ public class FarmaciaMenu {
     }
 
     private void listar() {
-        if (listaRemedios.isEmpty()) {
+        List<Remedio> remedios = repository.findAll();
+        if (remedios.isEmpty()) {
             System.out.println("Nenhum remedio encontrado!");
         }
-        for (String remedio : listaRemedios) {
-            System.out.println("- "+remedio);
+        for (Remedio r : remedios) {
+            System.out.println("- "+r);
         }
     }
 
@@ -71,10 +73,10 @@ public class FarmaciaMenu {
         do {
             System.out.print("Digite o nome do remedio: ");
             String nome = scanner.nextLine();
-            if (listaRemedios.contains(nome)) {
+            if (repository.existsByNomeRemedio(nome)) {
                 System.out.println("Este remedio ja existe!");
             } else {
-                listaRemedios.add(nome);
+                repository.save(new Remedio(nome));
                 System.out.println("Remedio adicionado com sucesso!");
             }
             System.out.println("Deseja adicionar um remedio para um pedido? [S/N]");

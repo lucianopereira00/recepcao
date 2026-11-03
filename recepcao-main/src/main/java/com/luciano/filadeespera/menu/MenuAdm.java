@@ -3,11 +3,12 @@ package com.luciano.filadeespera.menu;
 import com.luciano.filadeespera.farmacia.FarmaciaMenu;
 import com.luciano.filadeespera.model.Paciente;
 import com.luciano.filadeespera.service.GerenciadorDeFila;
+import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 // Se GerenciadorDeFila estiver no mesmo pacote 'service', o import não é obrigatório,
 // mas garanta que o arquivo GerenciadorDeFila.java está criado dentro dessa mesma pasta.
-
+@Component
 public class MenuAdm {
     private Scanner sc = new Scanner(System.in);
     private GerenciadorDeFila gerenciador2 = new GerenciadorDeFila();
