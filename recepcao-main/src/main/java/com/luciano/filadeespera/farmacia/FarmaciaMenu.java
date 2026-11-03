@@ -1,21 +1,26 @@
 package com.luciano.filadeespera.farmacia;
 
+import com.luciano.filadeespera.model.RemedioRepository;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-
-public class farmaciaMenu {
+@Component
+public class FarmaciaMenu {
 
     private Scanner scanner = new Scanner(System.in);
     private List<String> listaRemedios = new ArrayList<>();
     private List<String> pedidos = new ArrayList<>();
+    private final RemedioRepository repository;
 
-    public static void main(String[] args) {
-        new farmaciaMenu().menuFarmacia();
+    public FarmaciaMenu(RemedioRepository repository) {
+        this.repository = repository;
     }
 
     public void menuFarmacia() {
+
         int opcao;
         do {
             System.out.println("\nMenu Farmacia");

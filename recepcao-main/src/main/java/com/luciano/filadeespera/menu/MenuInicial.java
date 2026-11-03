@@ -10,6 +10,7 @@ public class MenuInicial {
 
     private final PacienteRepository pacienteRepository;
     private final MenuAtendimento menuPaciente;
+    private final MenuAdm menuAdm;
 
     Scanner sc = new Scanner(System.in);
 
@@ -17,11 +18,12 @@ public class MenuInicial {
     GerenciadorDeFila gerenciador = new GerenciadorDeFila();
 
     // 2. Criamos as telas
-    MenuAdm menuAdm = new MenuAdm();
 
-    public MenuInicial(PacienteRepository pacienteRepository) {
+
+    public MenuInicial(PacienteRepository pacienteRepository, MenuAdm menuAdm) {
         this.pacienteRepository = pacienteRepository;
         this.menuPaciente = new MenuAtendimento(pacienteRepository);
+        this.menuAdm = menuAdm;
     }
 
     public void menuInicial() {

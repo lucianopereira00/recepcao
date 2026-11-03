@@ -1,6 +1,6 @@
 package com.luciano.filadeespera.menu;
 
-import com.luciano.filadeespera.farmacia.farmaciaMenu;
+import com.luciano.filadeespera.farmacia.FarmaciaMenu;
 import com.luciano.filadeespera.model.Paciente;
 import com.luciano.filadeespera.service.GerenciadorDeFila;
 
@@ -11,7 +11,11 @@ import java.util.Scanner;
 public class MenuAdm {
     private Scanner sc = new Scanner(System.in);
     private GerenciadorDeFila gerenciador2 = new GerenciadorDeFila();
-    private farmaciaMenu farmaciaMenu = new farmaciaMenu();
+    private final FarmaciaMenu farmaciaMenu;
+
+    public MenuAdm(FarmaciaMenu farmaciaMenu) {
+        this.farmaciaMenu = farmaciaMenu;
+    }
 
     public void menuAdministrativo(GerenciadorDeFila gerenciador) {
         String opc = "";
