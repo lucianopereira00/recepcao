@@ -77,7 +77,7 @@ public class FarmaciaMenu {
                 System.out.println("Este remedio ja existe!");
             } else {
                 repository.save(new Remedio(nome));
-                System.out.println("Remedio adicionado com sucesso!");
+                System.out.println("Remédio adicionado com sucesso!");
             }
             System.out.println("Deseja adicionar um remedio para um pedido? [S/N]");
             opcao = scanner.nextLine();
@@ -87,7 +87,6 @@ public class FarmaciaMenu {
                 System.out.print("Retornando ao menu inical da farmacia...");
             }
     }
-
 
     private void remover() {
         String opcao;
