@@ -21,6 +21,7 @@ public class Remedio {
         this.nomeRemedio = nomeRemedio;
     }
 
+
     @Override
     public String toString() {
         return "Nome do remedio: " + nomeRemedio;

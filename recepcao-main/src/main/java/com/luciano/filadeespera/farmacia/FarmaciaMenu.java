@@ -1,13 +1,13 @@
 package com.luciano.filadeespera.farmacia;
 
+import com.luciano.filadeespera.model.Pedido;
+import com.luciano.filadeespera.model.PedidoRepository;
 import com.luciano.filadeespera.model.Remedio;
 import com.luciano.filadeespera.model.RemedioRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 @Component
 public class FarmaciaMenu {
 
@@ -15,9 +15,11 @@ public class FarmaciaMenu {
     private List<String> listaRemedios = new ArrayList<>();
     private List<String> pedidos = new ArrayList<>();
     private final RemedioRepository repository;
+    private final PedidoRepository pedidoRepository;
 
-    public FarmaciaMenu(RemedioRepository repository) {
+    public FarmaciaMenu(RemedioRepository repository,  PedidoRepository pedidoRepository) {
         this.repository = repository;
+        this.pedidoRepository = pedidoRepository;
     }
 
     public void menuFarmacia() {
@@ -60,8 +62,9 @@ public class FarmaciaMenu {
     private void realizarPedido() {
         System.out.print("Digite o nome do remedio: ");
         String nome = scanner.nextLine();
-        if (listaRemedios.contains(nome)) {
-            pedidos.add(nome);
+        Optional<Remedio> remedio = repository.findByNomeRemedioIgnoreCase(nome);
+        if (remedio.isPresent()) {
+            pedidoRepository.save(new Pedido(remedio.get()));
             System.out.println("Pedido realizado com sucesso!");
         } else {
             System.out.println("Nenhum remedio encontrado!");
